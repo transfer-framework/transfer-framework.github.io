@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transfer - Adapters</title>
+
+    <link rel="stylesheet" href="/styles/app.css" />
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Mono&subset=latin,cyrillic">
+</head>
+<body>
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+
+                            <div class="contain-to-grid sticky top-bar-container">
+    <nav class="top-bar show-for-medium-up" data-topbar role="navigation">
+
+        <ul class="title-area">
+            <li class="name">
+                <h1>
+                    <a href="/">
+                        <img src="/images/logo.png" /> &nbsp;&nbsp; Transfer
+                    </a>
+                </h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <ul class="right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/docs/1.0">Documentation</a>
+                </li>
+                <li class="active" style="margin-left: 35px;">
+                    <a href="/download.html" style="border-radius: 2px;">Download</a>
+                </li>
+                <li style="margin-left: 10px;">
+                    <a href="http://www.github.com/transfer-framework" style="text-transform: none;" target="_blank">
+                        <i class="icon icon-lg icon-github"></i> &nbsp;GitHub
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</div>
+
+<nav class="tab-bar show-for-small">
+    <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+    </section>
+
+    <section class="middle tab-bar-section">
+        <h1 class="title">Transfer</h1>
+    </section>
+</nav>
+
+<aside class="left-off-canvas-menu">
+    <ul class="off-canvas-list">
+        <li><label>Transfer</label></li>
+        <li><a href="/">Home</a></li>
+        <li><label>Documentation</label></li>
+        <li><a href="/docs/1.0">Transfer Core Documentation</a></li>
+        <li><label>Other</label></li>
+        <li><a href="/download.html">Download</a></li>
+        <li><a href="http://www.github.com/transfer-framework">View in GitHub</a></li>
+    </ul>
+</aside>
+            
+                        <div class="breadcrumbs-container show-for-medium-up">
+                <div class="row">
+                    <ul class="breadcrumbs">
+                                                        <li><a href="/">Home</a></li>
+                        
+
+    <li><a href="/docs/1.0/">Documentation</a></li>
+
+            <li><a href="../">Framework</a></li>
+            <li><a href="./">Quicktour</a></li>
+    
+    <li class="current">Adapters</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <section class="main-section">
+                <div class="row gap">
+    <div class="large-3 medium-4 columns sidebar-container">
+        <div class="sidebar">
+            <div class="sticky-sidebar">
+                <h5 class="panel-header">Transfer Documentation</h5>
+                <form class="search" action="/docs/1.0/search.html" method="get">
+                    <input name="q" tabindex="1" id="autocomplete" type="search" placeholder="Search Docs: e.g. worker" autocomplete="off">
+                </form>
+
+                <a href="/download.html" class="download button expand radius small">Download Transfer</a>
+
+                <h5 class="panel-header">Table of contents</h5>
+
+                <nav class="tree-menu">
+                    <ul>
+<li><a class="reference internal" href="#">Adapters</a></li>
+</ul>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="large-9 medium-8 columns content documentation-body">
+        <div class="panel">
+
+            
+            <a href="https://github.com/transfer-framework/docs/edit/1.0/framework/quick_tour/adapters.rst" class="button secondary tiny radius edit-button" target="_blank">
+                Edit this page
+            </a>
+
+                            <div class="section" id="adapters">
+<h1>Adapters<a class="headerlink" href="#adapters" title="Permalink to this headline">¶</a></h1>
+<p>In Transfer, we work with sources and targets. Generally, a source is any object or location from which data is
+<em>received</em>. In a similar way, targets are any object or location to which data can be <em>sent</em>.</p>
+<p>These sources and targets are implemented as adapters. An adapter helps two incompatible interfaces to work together.
+Here is an example of the stream adapter we looked at in <a class="reference internal" href="the_big_picture.html"><span class="doc">The Big Picture</span></a> chapter:</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="k">use</span> <span class="nx">Transfer\Adapter\SourceAdapterInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Transfer\Adapter\TargetAdapterInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">StreamAdapter</span> <span class="k">implements</span> <span class="nx">SourceAdapterInterface</span><span class="p">,</span> <span class="nx">TargetAdapterInterface</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$stream</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">stream</span> <span class="o">=</span> <span class="nb">fopen</span><span class="p">(</span><span class="s1">&#39;./&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">receive</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nb">fseek</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">stream</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="k">array</span><span class="p">(</span><span class="nb">stream_get_contents</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">stream</span><span class="p">)));</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">send</span><span class="p">(</span><span class="nx">Request</span> <span class="nv">$request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getData</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$data</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nb">fwrite</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">stream</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>An adapter can implement either <cite>SourceAdapterInterface</cite> and <cite>TargetAdapterInterface</cite>, or both. Whether an adapter will
+function as a source or a target, depends on which interfaces have been implemented.</p>
+<p>In our example, both interfaces are implemented. The <cite>receive</cite> method is part of <cite>SourceAdapterInterface</cite> and is
+responsible for receiving data from the source. In a similar way, the <cite>send</cite> method is part of <cite>TargetAdapterInterface</cite>
+and is responsible for sending data to the target.</p>
+<p>Note that the same stream functions as both the source and the target, as it is used whenever data is received or sent.</p>
+<p>Both <cite>receive</cite> and <cite>send</cite> methods take a <cite>Request</cite> object as an argument and return a <cite>Response</cite> object. The data format
+and the overall way these are used greatly depends on the end interface which the adapter uses.</p>
+</div>
+
+                    </div>
+        <div class="pagination-centered">
+            <ul class="pagination" role="menubar" aria-label="Pagination">
+                                    <li class="arrow"><a href="the_big_picture.html">&laquo; The Big Picture</a></li>
+                
+                                    <li class="arrow"><a href="workers.html">Workers &raquo;</a></li>
+                            </ul>
+
+        </div>
+    </div>
+            </section>
+
+            <a class="exit-off-canvas"></a>
+
+        </div>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="/scripts/foundation.min.js" type="text/javascript"></script>
+    <script src="/scripts/app.js" type="text/javascript"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
+    </body>
+</html>

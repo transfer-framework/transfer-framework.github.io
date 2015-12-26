@@ -1,0 +1,1 @@
+$(window).scroll(function(){if($(window).width()>640){var i=$(".sticky-sidebar");if(window.scrollY>50&&window.innerWidth>640){var o=0,t=$("[data-magellan-expedition]");t.hasClass("fixed")&&(o=40),i.css({position:"fixed",top:60+o,height:$(window).height()-60,overflow:"auto",width:i.parent().width()})}else i.css({position:"inherit",top:0})}});
