@@ -1,0 +1,519 @@
+{
+  "envversion": 46,
+  "terms": {
+    "targetadapterinterfac": 1,
+    "all": 3,
+    "concept": [
+      0,
+      2
+    ],
+    "help": 1,
+    "firstnam": 5,
+    "compliant": 5,
+    "csv_file": 5,
+    "xmlobjecttodoctrineentitytransform": [
+      3,
+      4
+    ],
+    "becaus": 4,
+    "file": 4,
+    "entiti": 4,
+    "xml": [
+      3,
+      4,
+      5
+    ],
+    "privat": 1,
+    "locat": [
+      1,
+      4
+    ],
+    "also": 4,
+    "fwrite": 1,
+    "explain": [
+      2,
+      3
+    ],
+    "configur": [
+      3,
+      4
+    ],
+    "send": 1,
+    "should": 3,
+    "input": 4,
+    "might": 3,
+    "sent": [
+      1,
+      4
+    ],
+    "adapt": 0,
+    "sourc": [
+      1,
+      3,
+      4
+    ],
+    "return": [
+      1,
+      5
+    ],
+    "greater": 0,
+    "variou": 4,
+    "format": [
+      1,
+      5
+    ],
+    "read": 3,
+    "big": [
+      0,
+      1
+    ],
+    "overal": 1,
+    "intuit": 3,
+    "getprocedur": [
+      3,
+      4
+    ],
+    "simplexml_load_str": 5,
+    "new": [
+      1,
+      3,
+      4,
+      5
+    ],
+    "cook": 3,
+    "now": 3,
+    "target": [
+      1,
+      3,
+      4
+    ],
+    "recip": 3,
+    "csv": [
+      4,
+      5
+    ],
+    "name": 5,
+    "doctrin": 4,
+    "public": 1,
+    "whether": 1,
+    "achiev": 5,
+    "necessari": [
+      3,
+      4
+    ],
+    "common": [
+      4,
+      5
+    ],
+    "quick": [
+      0,
+      2
+    ],
+    "meal": 3,
+    "depend": 1,
+    "set": [
+      0,
+      3,
+      4
+    ],
+    "often": 4,
+    "compat": 4,
+    "some": [
+      0,
+      2,
+      5
+    ],
+    "procedur": 0,
+    "see": 3,
+    "export": [
+      0,
+      4,
+      5
+    ],
+    "structur": 4,
+    "respons": 1,
+    "our": [
+      1,
+      4
+    ],
+    "manifest": 2,
+    "analog": 3,
+    "out": [
+      3,
+      4
+    ],
+    "databaseadapt": [
+      3,
+      4
+    ],
+    "databas": 4,
+    "someth": 4,
+    "invok": 4,
+    "sprintf": 5,
+    "between": [
+      4,
+      5
+    ],
+    "import": [
+      0,
+      4,
+      5
+    ],
+    "addtarget": [
+      3,
+      4,
+      5
+    ],
+    "method": [
+      1,
+      5
+    ],
+    "told": 3,
+    "gener": [
+      1,
+      4
+    ],
+    "flow": 4,
+    "here": [
+      1,
+      5
+    ],
+    "procedurebuild": [
+      3,
+      4,
+      5
+    ],
+    "job": 4,
+    "put": 3,
+    "xml_file": 5,
+    "becom": 4,
+    "modifi": 5,
+    "chapter": [
+      0,
+      1
+    ],
+    "both": [
+      1,
+      4
+    ],
+    "last": 5,
+    "greatli": 1,
+    "commun": 4,
+    "foreach": 1,
+    "queue": 3,
+    "tour": [
+      0,
+      2
+    ],
+    "implement": 1,
+    "processor": 0,
+    "first": 5,
+    "oper": 3,
+    "can": [
+      1,
+      4
+    ],
+    "carri": [
+      3,
+      4
+    ],
+    "articl": [
+      3,
+      4
+    ],
+    "arrai": 1,
+    "lastnam": 5,
+    "system": 5,
+    "instruct": 3,
+    "api": 4,
+    "chang": 4,
+    "fopen": [
+      1,
+      3,
+      4,
+      5
+    ],
+    "addwork": [
+      3,
+      4,
+      5
+    ],
+    "__construct": 1,
+    "given": 5,
+    "doe": [
+      4,
+      5
+    ],
+    "from": [
+      1,
+      4,
+      5
+    ],
+    "creat": 3,
+    "wai": [
+      1,
+      3,
+      4
+    ],
+    "pictur": [
+      0,
+      1
+    ],
+    "transfer": [
+      0,
+      1,
+      4,
+      5
+    ],
+    "transform": [
+      4,
+      5
+    ],
+    "been": 1,
+    "compon": 0,
+    "start": [
+      3,
+      4
+    ],
+    "json": 4,
+    "interfac": 1,
+    "includ": 4,
+    "basic": [
+      0,
+      2
+    ],
+    "john": 5,
+    "final": 4,
+    "store": 3,
+    "more": 5,
+    "function": [
+      1,
+      5
+    ],
+    "desir": 4,
+    "addsourc": [
+      3,
+      4,
+      5
+    ],
+    "worker": [
+      0,
+      4
+    ],
+    "replic": 4,
+    "similari": 5,
+    "part": 1,
+    "understand": 4,
+    "togeth": [
+      1,
+      3
+    ],
+    "getdata": 1,
+    "case": 4,
+    "ingredi": 3,
+    "look": [
+      1,
+      3
+    ],
+    "consist": [
+      0,
+      3,
+      4
+    ],
+    "whenev": [
+      1,
+      5
+    ],
+    "provid": 0,
+    "prepar": 3,
+    "work": 1,
+    "sequentialprocessor": [
+      3,
+      4
+    ],
+    "sourceadapterinterfac": 1,
+    "quicktour": 0,
+    "defin": 4,
+    "below": 4,
+    "introduc": 5,
+    "abov": 3,
+    "similar": [
+      1,
+      4
+    ],
+    "addprocedur": [
+      3,
+      4
+    ],
+    "want": 3,
+    "stream": [
+      1,
+      5
+    ],
+    "process": [
+      3,
+      4
+    ],
+    "cover": [
+      0,
+      2
+    ],
+    "pass": [
+      3,
+      4
+    ],
+    "xmlstringtoxmlobjecttransform": [
+      3,
+      4
+    ],
+    "argument": [
+      1,
+      5
+    ],
+    "accept": 4,
+    "have": [
+      1,
+      3,
+      4
+    ],
+    "need": 5,
+    "take": [
+      1,
+      5
+    ],
+    "incompat": [
+      1,
+      5
+    ],
+    "string": 5,
+    "imagin": 3,
+    "end": 1,
+    "thei": 3,
+    "receiv": [
+      1,
+      4
+    ],
+    "parti": 4,
+    "fseek": 1,
+    "when": [
+      3,
+      4
+    ],
+    "detail": 0,
+    "same": 1,
+    "note": 1,
+    "how": 3,
+    "valid": 4,
+    "append": 4,
+    "which": [
+      1,
+      3,
+      4
+    ],
+    "you": 3,
+    "streamadapt": [
+      1,
+      3,
+      4,
+      5
+    ],
+    "either": 1,
+    "node": 5,
+    "variabl": 3,
+    "object": [
+      1,
+      3,
+      4
+    ],
+    "rawxmlstr": 5,
+    "befor": 4,
+    "two": [
+      1,
+      4,
+      5
+    ],
+    "php": 4,
+    "data": [
+      0,
+      1,
+      4,
+      5
+    ],
+    "class": [
+      1,
+      5
+    ],
+    "goal": 2,
+    "task": 0,
+    "orchestr": 4,
+    "practic": 2,
+    "third": 4,
+    "ani": [
+      1,
+      4
+    ],
+    "builder": [
+      3,
+      4
+    ],
+    "later": 0,
+    "request": 1,
+    "stream_get_cont": 1,
+    "exampl": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "thi": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "anoth": 5,
+    "callabl": 5,
+    "everyth": 4,
+    "order": 3,
+    "usual": [
+      4,
+      5
+    ]
+  },
+  "objtypes": {},
+  "objnames": {},
+  "filenames": [
+    "framework/index",
+    "framework/quick_tour/adapters",
+    "framework/quick_tour/index",
+    "framework/quick_tour/procedures",
+    "framework/quick_tour/the_big_picture",
+    "framework/quick_tour/workers",
+    "index"
+  ],
+  "titles": [
+    "Framework",
+    "Adapters",
+    "Quicktour",
+    "Procedures and processors",
+    "The Big Picture",
+    "Workers",
+    "Transfer documentation"
+  ],
+  "objects": {},
+  "titleterms": {
+    "pictur": 4,
+    "big": 4,
+    "worker": 5,
+    "quicktour": 2,
+    "framework": 0,
+    "procedur": 3,
+    "transfer": 6,
+    "document": 6,
+    "processor": 3,
+    "adapt": 1
+  }
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Transfer</title>
+    <title>Transfer - Search</title>
 
     <link rel="stylesheet" href="/styles/app.css" />
 
@@ -71,30 +71,44 @@
     </ul>
 </aside>
             
+                        <div class="breadcrumbs-container show-for-medium-up">
+                <div class="row">
+                    <ul class="breadcrumbs">
+                                                        <li><a href="/">Home</a></li>
+                        
+
+    <li><a href="/docs/1.0/search.html">Search</a></li>
+                    </ul>
+                </div>
+            </div>
             
             <section class="main-section">
-                <div class="contain-to-grid intro">
-    <div class="row">
-        <div class="large-12 text-center">
-            <h1><strong>Transfer</strong> is a set of tools for developing data batch jobs</h1>
+                    <div class="row gap">
+        <div class="panel search-section">
+            <form class="row" action="" method="get">
+                <div class="large-10 medium-9 small-8 columns">
+                    <input type="search" name="q" id="query-input">
+                </div>
+                <div class="large-2 medium-3 small-4 columns">
+                    <input type="submit" value="Search" class="small-12 button radius tiny">
+                </div>
+            </form>
 
-            <a href="download.html" class="button secondary large radius">Download Transfer</a> <br />
-            <span>Currently v1.0</span>
+            <div id="search-results" class="result-container"></div>
+
+            <div id="no-results-container" style="display: none;">
+                <h2>Your search did not match any documents.</h2>
+                <p>
+                    Suggestions:
+                    <ul>
+                        <li>Make sure all words are spelled correctly.</li>
+                        <li>Try different keywords.</li>
+                        <li>Try more general keywords.</li>
+                    </ul>
+                </p>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="contain-to-grid intro secondary">
-    <div class="row">
-        <div class="large-12 text-center">
-            <h2>Transfer is free and open source</h2>
-            <a href="http://www.github.com/transfer-framework" class="button radius" target="_blank">
-                <i class="icon icon-lg icon-github"></i> &nbsp;
-                View on GitHub
-            </a>
-        </div>
-    </div>
-</div>
             </section>
 
             <a class="exit-off-canvas"></a>
@@ -102,12 +116,26 @@
         </div>
     </div>
 
-        <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+            <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
     <script src="/scripts/foundation.min.js" type="text/javascript"></script>
     <script src="/scripts/app.js" type="text/javascript"></script>
 
     <script>
         $(document).foundation();
     </script>
-    </body>
+    
+
+    <script src="/scripts/query.js" type="text/javascript"></script>
+    <script src="/scripts/search.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        var search = new Search();
+        search.loadIndex("searchindex.json");
+
+        var results = search.executeFromGlobals($("#query-input"));
+        search.renderResults(results, $("#search-results"), $("#no-results-container"));
+    </script>
+
+    <script type="text/javascript" id="searchindexloader"></script>
+</body>
 </html>

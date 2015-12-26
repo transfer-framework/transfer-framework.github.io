@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transfer - The Big Picture</title>
+
+    <link rel="stylesheet" href="/styles/app.css" />
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Mono&subset=latin,cyrillic">
+</head>
+<body>
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+
+                            <div class="contain-to-grid sticky top-bar-container">
+    <nav class="top-bar show-for-medium-up" data-topbar role="navigation">
+
+        <ul class="title-area">
+            <li class="name">
+                <h1>
+                    <a href="/">
+                        <img src="/images/logo.png" /> &nbsp;&nbsp; Transfer
+                    </a>
+                </h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <ul class="right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/docs/1.0">Documentation</a>
+                </li>
+                <li class="active" style="margin-left: 35px;">
+                    <a href="/download.html" style="border-radius: 2px;">Download</a>
+                </li>
+                <li style="margin-left: 10px;">
+                    <a href="http://www.github.com/transfer-framework" style="text-transform: none;" target="_blank">
+                        <i class="icon icon-lg icon-github"></i> &nbsp;GitHub
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</div>
+
+<nav class="tab-bar show-for-small">
+    <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+    </section>
+
+    <section class="middle tab-bar-section">
+        <h1 class="title">Transfer</h1>
+    </section>
+</nav>
+
+<aside class="left-off-canvas-menu">
+    <ul class="off-canvas-list">
+        <li><label>Transfer</label></li>
+        <li><a href="/">Home</a></li>
+        <li><label>Documentation</label></li>
+        <li><a href="/docs/1.0">Transfer Core Documentation</a></li>
+        <li><label>Other</label></li>
+        <li><a href="/download.html">Download</a></li>
+        <li><a href="http://www.github.com/transfer-framework">View in GitHub</a></li>
+    </ul>
+</aside>
+            
+                        <div class="breadcrumbs-container show-for-medium-up">
+                <div class="row">
+                    <ul class="breadcrumbs">
+                                                        <li><a href="/">Home</a></li>
+                        
+
+    <li><a href="/docs/1.0/">Documentation</a></li>
+
+            <li><a href="../">Framework</a></li>
+            <li><a href="./">Quicktour</a></li>
+    
+    <li class="current">The Big Picture</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <section class="main-section">
+                <div class="row gap">
+    <div class="large-3 medium-4 columns sidebar-container">
+        <div class="sidebar">
+            <div class="sticky-sidebar">
+                <h5 class="panel-header">Transfer Documentation</h5>
+                <form class="search" action="/docs/1.0/search.html" method="get">
+                    <input name="q" tabindex="1" id="autocomplete" type="search" placeholder="Search Docs: e.g. worker" autocomplete="off">
+                </form>
+
+                <a href="/download.html" class="download button expand radius small">Download Transfer</a>
+
+                <h5 class="panel-header">Table of contents</h5>
+
+                <nav class="tree-menu">
+                    <ul>
+<li><a class="reference internal" href="#">The Big Picture</a></li>
+</ul>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="large-9 medium-8 columns content documentation-body">
+        <div class="panel">
+
+            
+            <a href="https://github.com/transfer-framework/docs/edit/1.0/framework/quick_tour/the_big_picture.rst" class="button secondary tiny radius edit-button" target="_blank">
+                Edit this page
+            </a>
+
+                            <div class="section" id="the-big-picture">
+<h1>The Big Picture<a class="headerlink" href="#the-big-picture" title="Permalink to this headline">¶</a></h1>
+<p>A common data import or export job usually consists of a <strong>source</strong> and a <strong>target</strong>. Generally, a source is any object
+or location from which data is <em>received</em>. In a similar way, targets are any object or location to which data can be
+<em>sent</em>.</p>
+<p>Common examples for both sources and targets include structured files (XML, CSV, Json), databases, or third party APIs.</p>
+<p>Often, it is also desirable to transform data so that it becomes compatible with the target. In such cases, <strong>workers</strong>
+are used. A worker does necessary changes to data before it is sent to targets.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../_images/flow.png" src="../../_images/flow.png" />
+<p class="caption"><span class="caption-text"><em>Data flow</em></span></p>
+</div>
+<p>A common example of data import is having a structured file, such as an XML, as a source and a database as the target.
+Because databases can not accept XML files as valid input, these files have to be transformed into something a database
+can understand. In the example below we transform XML files to XML objects, which then are transformed to Doctrine
+entities. Finally, the doctrine entities are sent to the database.</p>
+<div class="figure align-center" id="id2">
+<img alt="../../_images/flow_2.png" src="../../_images/flow_2.png" />
+<p class="caption"><span class="caption-text"><em>Data import from XML files to database</em></span></p>
+</div>
+<p>We use <strong>procedures</strong> to define the configuration of various sources, workers and targets. In the case of the XML to
+Database example, we have one source, two workers, and one target.</p>
+<div class="figure align-center" id="id3">
+<img alt="../../_images/procedure_3.png" src="../../_images/procedure_3.png" />
+<p class="caption"><span class="caption-text"><em>XML Files to Database procedure</em></span></p>
+</div>
+<p>When procedures are defined, these are passed into a <strong>processor</strong>. A processor orchestrates the data flow and carries
+out communication between sources, workers and targets.</p>
+<p>In Transfer, procedures are set up by using the procedure builder.</p>
+<div class="highlight-php"><div class="highlight"><pre><span class="k">use</span> <span class="nx">Transfer\Procedure\ProcedureBuilder</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Transfer\Processor\SequentialProcessor</span><span class="p">;</span>
+
+<span class="nv">$builder</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProcedureBuilder</span><span class="p">();</span>
+
+<span class="nv">$procedure</span> <span class="o">=</span> <span class="nv">$builder</span>
+   <span class="o">-&gt;</span><span class="na">addSource</span><span class="p">(</span><span class="k">new</span> <span class="nx">StreamAdapter</span><span class="p">(</span><span class="nb">fopen</span><span class="p">(</span><span class="s1">&#39;articles.xml&#39;</span><span class="p">))</span>
+   <span class="o">-&gt;</span><span class="na">addWorker</span><span class="p">(</span><span class="k">new</span> <span class="nx">XmlStringToXmlObjectTransformer</span><span class="p">())</span>
+   <span class="o">-&gt;</span><span class="na">addWorker</span><span class="p">(</span><span class="k">new</span> <span class="nx">XmlObjectToDoctrineEntityTransformer</span><span class="p">())</span>
+   <span class="o">-&gt;</span><span class="na">addTarget</span><span class="p">(</span><span class="k">new</span> <span class="nx">DatabaseAdapter</span><span class="p">());</span>
+   <span class="o">-&gt;</span><span class="na">getProcedure</span><span class="p">();</span>
+
+<span class="nv">$processor</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SequentialProcessor</span><span class="p">();</span>
+<span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">addProcedure</span><span class="p">(</span><span class="nv">$procedure</span><span class="p">);</span>
+
+<span class="nv">$processor</span><span class="o">-&gt;</span><span class="na">process</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>In this example, we replicate our procedure in PHP by using the procedure builder. The procedure object is then appended
+to a processor. When everything is set up, the processor is invoked and procedure processing starts.</p>
+</div>
+
+                    </div>
+        <div class="pagination-centered">
+            <ul class="pagination" role="menubar" aria-label="Pagination">
+                                    <li class="arrow"><a href="./">&laquo; Quicktour</a></li>
+                
+                                    <li class="arrow"><a href="adapters.html">Adapters &raquo;</a></li>
+                            </ul>
+
+        </div>
+    </div>
+            </section>
+
+            <a class="exit-off-canvas"></a>
+
+        </div>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="/scripts/foundation.min.js" type="text/javascript"></script>
+    <script src="/scripts/app.js" type="text/javascript"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
+    </body>
+</html>
