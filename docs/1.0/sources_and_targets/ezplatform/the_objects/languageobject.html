@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Transfer - Transfer documentation</title>
+    <title>Transfer - LanguageObject</title>
 
     <link rel="stylesheet" href="/styles/app.css" />
 
@@ -79,8 +79,10 @@
 
     <li><a href="/docs/1.0/">Documentation</a></li>
 
+            <li><a href="../../">Sources and Targets</a></li>
+            <li><a href="../">eZ Platform</a></li>
     
-    <li class="current">Transfer documentation</li>
+    <li class="current">LanguageObject</li>
                     </ul>
                 </div>
             </div>
@@ -101,7 +103,7 @@
 
                 <nav class="tree-menu">
                     <ul>
-<li><a class="reference internal" href="#">Transfer documentation</a></li>
+<li><a class="reference internal" href="#">LanguageObject</a></li>
 </ul>
 
                 </nav>
@@ -112,49 +114,85 @@
         <div class="panel">
 
             
-            <a href="https://github.com/transfer-framework/docs/edit/1.0/index.rst" class="button secondary tiny radius edit-button" target="_blank">
+            <a href="https://github.com/transfer-framework/docs/edit/1.0/sources_and_targets/ezplatform/the_objects/languageobject.rst" class="button secondary tiny radius edit-button" target="_blank">
                 Edit this page
             </a>
 
-                            <div class="section" id="transfer-documentation">
-<span id="id1"></span><h1>Transfer documentation<a class="headerlink" href="#transfer-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="framework/">Framework</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="framework/quick_tour/">Quicktour</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="framework/quick_tour/the_big_picture.html">The Big Picture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="framework/quick_tour/adapters.html">Adapters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="framework/quick_tour/workers.html">Workers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="framework/quick_tour/procedures.html">Procedures and processors</a></li>
+                            <div class="section" id="languageobject">
+<h1>LanguageObject<a class="headerlink" href="#languageobject" title="Permalink to this headline">¶</a></h1>
+<p>This is used to handle Language</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">LanguageObject</span><span class="p">(</span><span class="k">array</span> <span class="nv">$data</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$properties</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Available keys</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nx">code</span>    <span class="o">=&gt;</span> <span class="nx">string</span>
+    <span class="nx">name</span>    <span class="o">=&gt;</span> <span class="nx">string</span>
+    <span class="nx">enabled</span> <span class="o">=&gt;</span> <span class="nx">bool</span>
+<span class="p">],</span>
+<span class="nv">$properties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nx">id</span>     <span class="o">=&gt;</span> <span class="nx">int</span>
+    <span class="nx">action</span> <span class="o">=&gt;</span> <span class="nx">int</span> <span class="p">{</span><span class="o">@</span><span class="nb">link</span> <span class="nx">see</span> <span class="nx">\Transfer\EzPlatform\Data\Action\Enum\Action</span><span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Requirements when <strong>creating</strong> Language:</dt>
+<dd><dl class="first last docutils">
+<dt>$data:</dt>
+<dd><ul class="first last simple">
+<li>code</li>
 </ul>
-</li>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>LanguageObject create example</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">LanguageObject</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;nor-NO&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Requirements when <strong>updating</strong> Language:</dt>
+<dd><dl class="first last docutils">
+<dt>$data:</dt>
+<dd><ul class="first last simple">
+<li>code</li>
+<li>name</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sources_and_targets/">Sources and Targets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sources_and_targets/ezplatform/">eZ Platform</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sources_and_targets/ezplatform/#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sources_and_targets/ezplatform/#the-objects">The objects</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/contentobject.html">Content Object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/locationobject.html">LocationObject</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/contenttypeobject.html">ContentType Object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/userobject.html">UserObject</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/usergroupobject.html">UserGroupObject</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/languageobject.html">LanguageObject</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>LanguageObject update example</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">LanguageObject</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;nor-NO&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Norwegian&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>LanguageObject complete update example</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">LanguageObject</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;nor-NO&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Norwegian&#39;</span>
+        <span class="s1">&#39;enabled&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
 </div>
 </div>
 
                     </div>
         <div class="pagination-centered">
             <ul class="pagination" role="menubar" aria-label="Pagination">
+                                    <li class="arrow"><a href="usergroupobject.html">&laquo; UserGroupObject</a></li>
                 
-                                    <li class="arrow"><a href="framework/">Framework &raquo;</a></li>
                             </ul>
 
         </div>

@@ -125,7 +125,7 @@ This introduces the need for transforming data into a more compliant format. In 
 workers. A worker is a callable (class method or a function) that takes some data as the argument and returns modified
 data.</p>
 <p>Here is an example of a worker that transforms a string from XML to CSV format:</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="k">use</span> <span class="nx">Transfer\Procedure\ProcedureBuilder</span><span class="p">;</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Transfer\Procedure\ProcedureBuilder</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">Transfer\Commons\Stream\Adapter\StreamAdapter</span><span class="p">;</span>
 
 <span class="nv">$pb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProcedureBuilder</span><span class="p">();</span>
@@ -144,14 +144,14 @@ data.</p>
 </pre></div>
 </div>
 <p>Given an XML string:</p>
-<div class="highlight-xml"><div class="highlight"><pre><span class="nt">&lt;xml&gt;</span>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="nt">&lt;xml&gt;</span>
     <span class="nt">&lt;firstName&gt;</span>John<span class="nt">&lt;/firstName&gt;</span>
     <span class="nt">&lt;lastName&gt;</span>Doe<span class="nt">&lt;/lastName&gt;</span>
 <span class="nt">&lt;/xml&gt;</span>
 </pre></div>
 </div>
 <p>It will be transformed into a CSV string, similary to this:</p>
-<div class="highlight-csv"><div class="highlight"><pre>First Name,Last Name
+<div class="highlight-csv"><div class="highlight"><pre><span></span>First Name,Last Name
 John,Doe
 </pre></div>
 </div>

@@ -122,16 +122,13 @@
 <h1>Procedures and processors<a class="headerlink" href="#procedures-and-processors" title="Permalink to this headline">¶</a></h1>
 <p>In Transfer, a procedure is a configuration of sources, workers and targets. These procedures are stored as objects and
 are then passed into a processor for processing.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">One intuitive way of explaining procedures and processors is by a cooking example. Imagine you want to prepare a meal.
+<p>One intuitive way of explaining procedures and processors is by a cooking example. Imagine you want to prepare a meal.
 You have a cooking recipe which consists of the necessary ingredients and instructions. Now, in order to prepare the
 meal you, as the cook, might look into the recipe to see which ingredients should be used and  how they should be put
 together. In this analogy, the recipe is the procedure consisting of all the  sources, workers and targets, and the
 processor is the cook that reads the procedure and carries out all the operations.</p>
-</div>
 <p>We use the <cite>ProcedureBuilder</cite> to create procedures:</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="k">use</span> <span class="nx">Transfer\Procedure\ProcedureBuilder</span><span class="p">;</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Transfer\Procedure\ProcedureBuilder</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">Transfer\Processor\SequentialProcessor</span><span class="p">;</span>
 <span class="c1">// ...</span>
 
@@ -159,6 +156,7 @@ to the processor&#8217;s procedure queue. When all is set, the processor is told
             <ul class="pagination" role="menubar" aria-label="Pagination">
                                     <li class="arrow"><a href="workers.html">&laquo; Workers</a></li>
                 
+                                    <li class="arrow"><a href="../../sources_and_targets/">Sources and Targets &raquo;</a></li>
                             </ul>
 
         </div>
