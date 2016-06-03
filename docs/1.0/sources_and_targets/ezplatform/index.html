@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Transfer - Transfer documentation</title>
+    <title>Transfer - eZ Platform</title>
 
     <link rel="stylesheet" href="/styles/app.css" />
 
@@ -79,8 +79,9 @@
 
     <li><a href="/docs/1.0/">Documentation</a></li>
 
+            <li><a href="../">Sources and Targets</a></li>
     
-    <li class="current">Transfer documentation</li>
+    <li class="current">eZ Platform</li>
                     </ul>
                 </div>
             </div>
@@ -101,7 +102,11 @@
 
                 <nav class="tree-menu">
                     <ul>
-<li><a class="reference internal" href="#">Transfer documentation</a></li>
+<li><a class="reference internal" href="#">eZ Platform</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#the-objects">The objects</a></li>
+</ul>
+</li>
 </ul>
 
                 </nav>
@@ -112,49 +117,81 @@
         <div class="panel">
 
             
-            <a href="https://github.com/transfer-framework/docs/edit/1.0/index.rst" class="button secondary tiny radius edit-button" target="_blank">
+            <a href="https://github.com/transfer-framework/docs/edit/1.0/sources_and_targets/ezplatform/index.rst" class="button secondary tiny radius edit-button" target="_blank">
                 Edit this page
             </a>
 
-                            <div class="section" id="transfer-documentation">
-<span id="id1"></span><h1>Transfer documentation<a class="headerlink" href="#transfer-documentation" title="Permalink to this headline">¶</a></h1>
+                            <div class="section" id="ez-platform">
+<h1>eZ Platform<a class="headerlink" href="#ez-platform" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>First note: Some parts of this documentation might take for granted that you know most of the wording in the eZPublish/eZPlatform world, so if you have questions regarding eZPlatform, please check out their documentation on <a class="reference external" href="https://doc.ez.no/">https://doc.ez.no/</a>.</p>
+<p>Second note: When we&#8217;re talking about specific objects between Transfer and EzPlatform we only specify their classnames.
+None of the classes in transfer/ezplatform has an identical name in ezsystems/ezpublish-kernel.</p>
+<p>E.g.:</p>
+<ul class="simple">
+<li>When we say <code class="docutils literal"><span class="pre">Location</span></code>, we are talking about the eZPlatform object: <code class="docutils literal"><span class="pre">eZ\Publish\API\Repository\Values\Content\Location</span></code>.</li>
+<li>When we say <code class="docutils literal"><span class="pre">LocationObject</span></code>, we are talking about the Transfer object: <code class="docutils literal"><span class="pre">Transfer\EzPlatform\Repository\Values\LocationObject</span></code>.</li>
+</ul>
+<p>Hence the somewhat silly appending of <strong>Object</strong> on every valueobject.</p>
+</div>
+<div class="section" id="the-objects">
+<h2>The objects<a class="headerlink" href="#the-objects" title="Permalink to this headline">¶</a></h2>
+<p>With transfer/ezplatform you may store the below types of data to an eZ Platform installation.
+Most of these have a one-to-one relation with the corresponding eZPlatform objects, but with features allowing us to mix it up, and do some more powerful or simplified imports.
+Whenever you import single pieces of data, wheather it be Users or ContentTypes, we wrap the data in different implementations of EzPlatformObject to let Transfer know what kind of data we want to manipulate.
+Whenever we want to create, update or remove a Location, we wrap our identifiers and action in a LocationObject. For Content we wrap it in a ContentObject and so forth.
+See this table for more of these:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Transfer object</th>
+<th class="head">Corresponding eZPlatform object</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="the_objects/contentobject.html"><span class="doc">ContentObject</span></a></td>
+<td>Content</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="the_objects/locationobject.html"><span class="doc">LocationObject</span></a></td>
+<td>Location</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="the_objects/contenttypeobject.html"><span class="doc">ContentTypeObject</span></a></td>
+<td>ContentType</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="the_objects/userobject.html"><span class="doc">UserObject</span></a></td>
+<td>User</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="the_objects/usergroupobject.html"><span class="doc">UserGroupObject</span></a></td>
+<td>UserGroup</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="the_objects/languageobject.html"><span class="doc">LanguageObject</span></a></td>
+<td>Language</td>
+</tr>
+</tbody>
+</table>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="framework/">Framework</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="framework/quick_tour/">Quicktour</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="framework/quick_tour/the_big_picture.html">The Big Picture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="framework/quick_tour/adapters.html">Adapters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="framework/quick_tour/workers.html">Workers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="framework/quick_tour/procedures.html">Procedures and processors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_objects/contentobject.html">Content Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_objects/locationobject.html">LocationObject</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_objects/contenttypeobject.html">ContentType Object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_objects/userobject.html">UserObject</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_objects/usergroupobject.html">UserGroupObject</a></li>
+<li class="toctree-l1"><a class="reference internal" href="the_objects/languageobject.html">LanguageObject</a></li>
 </ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="sources_and_targets/">Sources and Targets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sources_and_targets/ezplatform/">eZ Platform</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="sources_and_targets/ezplatform/#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="sources_and_targets/ezplatform/#the-objects">The objects</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/contentobject.html">Content Object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/locationobject.html">LocationObject</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/contenttypeobject.html">ContentType Object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/userobject.html">UserObject</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/usergroupobject.html">UserGroupObject</a></li>
-<li class="toctree-l4"><a class="reference internal" href="sources_and_targets/ezplatform/the_objects/languageobject.html">LanguageObject</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+</div>
 </div>
 </div>
 
                     </div>
         <div class="pagination-centered">
             <ul class="pagination" role="menubar" aria-label="Pagination">
+                                    <li class="arrow"><a href="../">&laquo; Sources and Targets</a></li>
                 
-                                    <li class="arrow"><a href="framework/">Framework &raquo;</a></li>
+                                    <li class="arrow"><a href="the_objects/contentobject.html">Content Object &raquo;</a></li>
                             </ul>
 
         </div>

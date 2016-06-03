@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transfer - Content Object</title>
+
+    <link rel="stylesheet" href="/styles/app.css" />
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Mono&subset=latin,cyrillic">
+</head>
+<body>
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+
+                            <div class="contain-to-grid sticky top-bar-container">
+    <nav class="top-bar show-for-medium-up" data-topbar role="navigation">
+
+        <ul class="title-area">
+            <li class="name">
+                <h1>
+                    <a href="/">
+                        <img src="/images/logo.png" /> &nbsp;&nbsp; Transfer
+                    </a>
+                </h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <ul class="right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/docs/1.0">Documentation</a>
+                </li>
+                <li class="active" style="margin-left: 35px;">
+                    <a href="/download.html" style="border-radius: 2px;">Download</a>
+                </li>
+                <li style="margin-left: 10px;">
+                    <a href="http://www.github.com/transfer-framework" style="text-transform: none;" target="_blank">
+                        <i class="icon icon-lg icon-github"></i> &nbsp;GitHub
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</div>
+
+<nav class="tab-bar show-for-small">
+    <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+    </section>
+
+    <section class="middle tab-bar-section">
+        <h1 class="title">Transfer</h1>
+    </section>
+</nav>
+
+<aside class="left-off-canvas-menu">
+    <ul class="off-canvas-list">
+        <li><label>Transfer</label></li>
+        <li><a href="/">Home</a></li>
+        <li><label>Documentation</label></li>
+        <li><a href="/docs/1.0">Transfer Core Documentation</a></li>
+        <li><label>Other</label></li>
+        <li><a href="/download.html">Download</a></li>
+        <li><a href="http://www.github.com/transfer-framework">View in GitHub</a></li>
+    </ul>
+</aside>
+            
+                        <div class="breadcrumbs-container show-for-medium-up">
+                <div class="row">
+                    <ul class="breadcrumbs">
+                                                        <li><a href="/">Home</a></li>
+                        
+
+    <li><a href="/docs/1.0/">Documentation</a></li>
+
+            <li><a href="../../">Sources and Targets</a></li>
+            <li><a href="../">eZ Platform</a></li>
+    
+    <li class="current">Content Object</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <section class="main-section">
+                <div class="row gap">
+    <div class="large-3 medium-4 columns sidebar-container">
+        <div class="sidebar">
+            <div class="sticky-sidebar">
+                <h5 class="panel-header">Transfer Documentation</h5>
+                <form class="search" action="/docs/1.0/search.html" method="get">
+                    <input name="q" tabindex="1" id="autocomplete" type="search" placeholder="Search Docs: e.g. worker" autocomplete="off">
+                </form>
+
+                <a href="/download.html" class="download button expand radius small">Download Transfer</a>
+
+                <h5 class="panel-header">Table of contents</h5>
+
+                <nav class="tree-menu">
+                    <ul>
+<li><a class="reference internal" href="#">Content Object</a></li>
+</ul>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="large-9 medium-8 columns content documentation-body">
+        <div class="panel">
+
+            
+            <a href="https://github.com/transfer-framework/docs/edit/1.0/sources_and_targets/ezplatform/the_objects/contentobject.rst" class="button secondary tiny radius edit-button" target="_blank">
+                Edit this page
+            </a>
+
+                            <div class="section" id="content-object">
+<h1>Content Object<a class="headerlink" href="#content-object" title="Permalink to this headline">¶</a></h1>
+<p>This is used to handle Content .. code-block:: php</p>
+<blockquote>
+<div>new ContentObject(array $data, array $properties = array())</div></blockquote>
+<p>Available keys</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="nx">field_identifier_1</span> <span class="o">=&gt;</span> <span class="s1">&#39;field_value_1&#39;</span><span class="p">,</span>
+    <span class="nx">field_identifier_2</span> <span class="o">=&gt;</span> <span class="s1">&#39;field_value_2&#39;</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">],</span>
+<span class="nv">$properties</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="c1">// Recommended to use this instead of using id as identifier,</span>
+    <span class="c1">// as we are able to choose our own value.</span>
+    <span class="nx">remote_id</span>               <span class="o">=&gt;</span> <span class="nx">string</span>
+
+    <span class="c1">// Used to link Content with Location, don&#39;t set this yourself.</span>
+    <span class="c1">// Use &#39;remote_id&#39; to locate Content instead.</span>
+    <span class="nx">id</span>                      <span class="o">=&gt;</span> <span class="nx">int</span>
+
+    <span class="c1">// See ContentTreeObject.</span>
+    <span class="nx">main_object</span>             <span class="o">=&gt;</span> <span class="nx">bool</span>
+
+    <span class="c1">// Locations of the Content. Should be an array which might contain</span>
+    <span class="c1">// int, LocationObject or Location. Or a mix of these.</span>
+    <span class="nx">parent_locations</span>        <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">int</span><span class="o">|</span><span class="nx">LocationObject</span><span class="o">|</span><span class="nx">Location</span><span class="p">]</span>
+
+    <span class="c1">// An existing ContentType identifier</span>
+    <span class="nx">content_type_identifier</span> <span class="o">=&gt;</span> <span class="nx">string</span>
+
+    <span class="c1">// A language code. Defaults to &#39;eng-GB&#39;.</span>
+    <span class="nx">language</span>                <span class="o">=&gt;</span> <span class="nx">string</span>
+
+    <span class="c1">// On create, the first defined parent_location will be used as the</span>
+    <span class="c1">// main_location_id, unless main_location_id is defined</span>
+    <span class="nx">main_location_id</span>        <span class="o">=&gt;</span> <span class="nx">int</span>
+
+    <span class="c1">// {@link see \Transfer\EzPlatform\Data\Action\Enum\Action}</span>
+    <span class="nx">action</span>                  <span class="o">=&gt;</span> <span class="nx">int</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Requirements when <strong>creating</strong> Content:</dt>
+<dd><dl class="first last docutils">
+<dt>$data:</dt>
+<dd><ul class="first last simple">
+<li>atleast one field</li>
+<li>all fields marked as is_required on the ContentType, must have a value</li>
+</ul>
+</dd>
+<dt>$properties</dt>
+<dd><ul class="first last simple">
+<li>must contain the key <code class="docutils literal"><span class="pre">content_type_identifier</span></code> with a string value of the ContentType you would like to use.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>ContentObject create example</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">ContentObject</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;This is my title&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;content_type_identifier&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;article&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;remote_id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;article_example&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Requirements when <strong>updating</strong> Content:</dt>
+<dd><dl class="first last docutils">
+<dt>$data:</dt>
+<dd><ul class="first last simple">
+<li>atleast one field</li>
+</ul>
+</dd>
+<dt>$properties</dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">remote_id</span></code> or <code class="docutils literal"><span class="pre">id</span></code>, to be able to locate the Content to update</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>ContentObject update example</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">ContentObject</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;content&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;author&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Harald Tollefsen&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;remote_id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;article_example&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>ContentObject complete update example</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="nx">ContentObject</span><span class="p">(</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;This is my title&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;content&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Lorem ipsum dolor sit amet, consectetur adipiscing elit...&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;author&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Harald Tollefsen&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;remote_id&#39;</span>                 <span class="o">=&gt;</span> <span class="s1">&#39;article_example_1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;content_type_identifier&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;article&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;language&#39;</span>                  <span class="o">=&gt;</span> <span class="s1">&#39;eng-GB&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;parent_locations&#39;</span>          <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="k">new</span> <span class="nx">LocationObject</span><span class="p">(</span><span class="o">...</span><span class="p">),</span> <span class="mi">43</span><span class="p">,</span> <span class="p">),</span>
+        <span class="s1">&#39;main_location_id&#39;</span>          <span class="o">=&gt;</span> <span class="mi">2</span><span class="p">,</span>
+        <span class="s1">&#39;action&#39;</span>                    <span class="o">=&gt;</span> <span class="nx">\Transfer\EzPlatform\Repository\Values\Action\Enum\Action</span><span class="o">::</span><span class="na">CREATEORUPDATE</span>
+        <span class="s1">&#39;content_info&#39;</span>              <span class="o">=&gt;</span> <span class="nx">\eZ\Publish\API\Repository\Values\Content\ContentInfo</span> <span class="c1">// Should not be set manually, will be defined after create or update</span>
+        <span class="s1">&#39;version_info&#39;</span>              <span class="o">=&gt;</span> <span class="nx">\eZ\Publish\API\Repository\Values\Content\VersionInfo</span> <span class="c1">// Should not be set manuelly, will be defined after create or update</span>
+    <span class="p">),</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+
+                    </div>
+        <div class="pagination-centered">
+            <ul class="pagination" role="menubar" aria-label="Pagination">
+                                    <li class="arrow"><a href="../">&laquo; eZ Platform</a></li>
+                
+                                    <li class="arrow"><a href="locationobject.html">LocationObject &raquo;</a></li>
+                            </ul>
+
+        </div>
+    </div>
+            </section>
+
+            <a class="exit-off-canvas"></a>
+
+        </div>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="/scripts/foundation.min.js" type="text/javascript"></script>
+    <script src="/scripts/app.js" type="text/javascript"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-71736061-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+    </body>
+</html>
