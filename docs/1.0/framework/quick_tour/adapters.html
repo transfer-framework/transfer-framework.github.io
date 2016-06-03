@@ -124,7 +124,7 @@
 <em>received</em>. In a similar way, targets are any object or location to which data can be <em>sent</em>.</p>
 <p>These sources and targets are implemented as adapters. An adapter helps two incompatible interfaces to work together.
 Here is an example of the stream adapter we looked at in <a class="reference internal" href="the_big_picture.html"><span class="doc">The Big Picture</span></a> chapter:</p>
-<div class="highlight-php"><div class="highlight"><pre><span class="k">use</span> <span class="nx">Transfer\Adapter\SourceAdapterInterface</span><span class="p">;</span>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Transfer\Adapter\SourceAdapterInterface</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">Transfer\Adapter\TargetAdapterInterface</span><span class="p">;</span>
 
 <span class="k">class</span> <span class="nc">StreamAdapter</span> <span class="k">implements</span> <span class="nx">SourceAdapterInterface</span><span class="p">,</span> <span class="nx">TargetAdapterInterface</span>
