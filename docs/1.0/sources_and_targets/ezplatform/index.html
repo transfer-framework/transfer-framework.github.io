@@ -105,8 +105,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../../framework/">Framework</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../">Sources and Targets</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="">eZ Platform</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#the-objects">The objects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-location-creation">Automatic location creation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#content-tree-import">Content tree import</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#object-model">Object model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#objects">Objects</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="the_objects/contentobject.html">ContentObject</a></li>
 <li class="toctree-l4"><a class="reference internal" href="the_objects/locationobject.html">LocationObject</a></li>
 <li class="toctree-l4"><a class="reference internal" href="the_objects/contenttypeobject.html">ContentTypeObject</a></li>
@@ -135,25 +142,62 @@
 
                             <div class="section" id="ez-platform">
 <h1>eZ Platform<a class="headerlink" href="#ez-platform" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
+<p>This documentation assumes that you know how to setup eZ Platform (previously
+known as eZ Publish) and have done it before. We also assume that you have a
+basic understanding of the content model used by eZ Platform, and how services
+are used to work with content in eZ Platform.</p>
+<p>To learn how to install eZ Platform, check out the
+<a class="reference external" href="https://doc.ez.no/display/DEVELOPER/Get+Started+with+eZ+Platform">Get Started with eZ Platform</a>
+article published by eZ.</p>
+<p>To learn about the eZ Platform content model and services, checkout the
+<a class="reference external" href="https://doc.ez.no/display/DEVELOPER/Public+API+Guide">eZ Platform Public API Guide</a>.</p>
+<p>This guide covers everything you will need to know about eZ Platform before
+proceeding with using the eZ Platform Transfer extension.</p>
+</div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>First note: Some parts of this documentation might take for granted that you know most of the wording in the eZPublish/eZPlatform world, so if you have questions regarding eZPlatform, please check out their documentation on <a class="reference external" href="https://doc.ez.no/">https://doc.ez.no/</a>.</p>
-<p>Second note: When we&#8217;re talking about specific objects between Transfer and EzPlatform we only specify their classnames.
-None of the classes in transfer/ezplatform has an identical name in ezsystems/ezpublish-kernel.</p>
-<p>E.g.:</p>
-<ul class="simple">
-<li>When we say <code class="docutils literal"><span class="pre">Location</span></code>, we are talking about the eZPlatform object: <code class="docutils literal"><span class="pre">eZ\Publish\API\Repository\Values\Content\Location</span></code>.</li>
-<li>When we say <code class="docutils literal"><span class="pre">LocationObject</span></code>, we are talking about the Transfer object: <code class="docutils literal"><span class="pre">Transfer\EzPlatform\Repository\Values\LocationObject</span></code>.</li>
-</ul>
-<p>Hence the somewhat silly appending of <strong>Object</strong> on every valueobject.</p>
+<p>The eZ Platform extension for Transfer is a set of components meant to simplify
+the process of importing data into eZ Platform.</p>
+<p>Along with a simplified way of representing eZ Platform objects, the extension
+also features functionality for automating many of the verbose procedures related to
+publishing content in eZ Platform.</p>
 </div>
-<div class="section" id="the-objects">
-<h2>The objects<a class="headerlink" href="#the-objects" title="Permalink to this headline">¶</a></h2>
-<p>With transfer/ezplatform you may store the below types of data to an eZ Platform installation.
-Most of these have a one-to-one relation with the corresponding eZPlatform objects, but with features allowing us to mix it up, and do some more powerful or simplified imports.
-Whenever you import single pieces of data, wheather it be Users or ContentTypes, we wrap the data in different implementations of EzPlatformObject to let Transfer know what kind of data we want to manipulate.
-Whenever we want to create, update or remove a Location, we wrap our identifiers and action in a LocationObject. For Content we wrap it in a ContentObject and so forth.
-See this table for more of these:</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="automatic-location-creation">
+<h3>Automatic location creation<a class="headerlink" href="#automatic-location-creation" title="Permalink to this headline">¶</a></h3>
+<p>Whenever a Content object is published, you can choose whether a location should
+automatically be created.</p>
+</div>
+<div class="section" id="content-tree-import">
+<h3>Content tree import<a class="headerlink" href="#content-tree-import" title="Permalink to this headline">¶</a></h3>
+<p>The extension supports importing a content tree consisting of content objects
+that are hierarchically pre-arranged. When the content tree is published through
+the extension, content objects and their locations will be created according to
+the tree structure.</p>
+</div>
+</div>
+<div class="section" id="object-model">
+<h2>Object model<a class="headerlink" href="#object-model" title="Permalink to this headline">¶</a></h2>
+<p>The extension defines a set of proxy objects, each which corresponding to its
+eZ Platform counterpart. The intention behind an additional abstraction layer is
+to simplify the creation of objects, such as content objects, and work with these
+objects in a similar way it is done with entities with Doctrine ORM.</p>
+<p>Unless noted otherwise, when we say location object, we refer to the location proxy
+object <code class="docutils literal"><span class="pre">Transfer\EzPlatform\Repository\Values\LocationObject</span></code> defined by the extension.</p>
+<p>When we say location, we refer to a value object in the eZ Platform content model:
+<code class="docutils literal"><span class="pre">eZ\Publish\API\Repository\Values\Content\Location</span></code></p>
+</div>
+<div class="section" id="objects">
+<h2>Objects<a class="headerlink" href="#objects" title="Permalink to this headline">¶</a></h2>
+<p>This section introduces a list of the proxy objects defined by the extension.</p>
+<p>All of these have a one-to-one relation with the eZ Platform objects. In addition to
+built-in eZ Platform capabilities, Transfer proxy objects may feature extra options
+for simplifying imports or doing more advanced tasks.</p>
+<p>The proxy objects hold a list of field values and additional properties that affect
+how an object is going to be translated to an eZ Platform object and imported.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="42%" />
@@ -161,7 +205,7 @@ See this table for more of these:</p>
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head">Transfer object</th>
-<th class="head">Corresponding eZPlatform object</th>
+<th class="head">Corresponding eZ Platform object</th>
 </tr>
 </thead>
 <tbody valign="top">
