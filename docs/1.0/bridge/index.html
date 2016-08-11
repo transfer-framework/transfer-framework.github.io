@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transfer - Bridge</title>
+
+    <link rel="stylesheet" href="/styles/app.css" />
+
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|PT+Mono&subset=latin,cyrillic">
+</head>
+<body>
+    <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+
+                            <div class="contain-to-grid sticky top-bar-container">
+    <nav class="top-bar show-for-medium-up" data-topbar role="navigation">
+
+        <ul class="title-area">
+            <li class="name">
+                <h1>
+                    <a href="/">
+                        <img src="/images/logo.png" /> &nbsp;&nbsp; Transfer
+                    </a>
+                </h1>
+            </li>
+        </ul>
+
+        <section class="top-bar-section">
+            <ul class="right">
+                <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/docs/1.0">Documentation</a>
+                </li>
+                <li class="active" style="margin-left: 35px;">
+                    <a href="/download.html" style="border-radius: 2px;">Download</a>
+                </li>
+                <li style="margin-left: 10px;">
+                    <a href="http://www.github.com/transfer-framework" style="text-transform: none;" target="_blank">
+                        <i class="icon icon-lg icon-github"></i> &nbsp;GitHub
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</div>
+
+<nav class="tab-bar show-for-small">
+    <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+    </section>
+
+    <section class="middle tab-bar-section">
+        <h1 class="title">Transfer</h1>
+    </section>
+</nav>
+
+<aside class="left-off-canvas-menu">
+    <ul class="off-canvas-list">
+        <li><label>Transfer</label></li>
+        <li><a href="/">Home</a></li>
+        <li><label>Documentation</label></li>
+        <li><a href="/docs/1.0">Transfer Core Documentation</a></li>
+        <li><label>Other</label></li>
+        <li><a href="/download.html">Download</a></li>
+        <li><a href="http://www.github.com/transfer-framework">View in GitHub</a></li>
+    </ul>
+</aside>
+            
+                        <div class="breadcrumbs-container show-for-medium-up">
+                <div class="row">
+                    <ul class="breadcrumbs">
+                                                        <li><a href="/">Home</a></li>
+                        
+
+    <li><a href="/docs/1.0/">Documentation</a></li>
+
+    
+    <li class="current">Bridge</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <section class="main-section">
+                <div class="row gap">
+    <div class="large-3 medium-4 columns sidebar-container">
+        <div class="sidebar">
+            <div class="sticky-sidebar">
+                <h5 class="panel-header">Transfer Documentation</h5>
+                <form class="search" action="/docs/1.0/search.html" method="get">
+                    <input name="q" tabindex="1" id="autocomplete" type="search" placeholder="Search Docs: e.g. worker" autocomplete="off">
+                </form>
+
+                <a href="/download.html" class="download button expand radius small">Download Transfer</a>
+
+                <h5 class="panel-header">Table of contents</h5>
+
+                <nav class="tree-menu">
+                    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../framework/">Framework</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Bridge</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#caching">Caching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#event-system">Event system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#web-toolbar-in-symfony">Web Toolbar in Symfony</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-bridge">Installing Bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#defining-services-in-php">Defining services in PHP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-services-in-php">Using services in PHP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-event-listeners-subscribers">Adding event listeners/subscribers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cache-pools">Cache pools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-the-default-cache-pool">Using the default cache pool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-new-cache-pools">Adding new cache pools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-bridge-with-symfony">Using Bridge with Symfony</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#installing-bridge-bundle">Installing Bridge Bundle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#defining-services-in-yaml">Defining services in YAML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-services-via-service-container">Using services via service container</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#providing-a-registry-file">Providing a registry file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#listing-services">Listing services</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#executing-actions">Executing actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#listing-cache-pools">Listing cache pools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clearing-cache-for-a-cache-pool">Clearing cache for a cache pool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-specific-cache-in-a-cache-pool">Removing specific cache in a cache pool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configuration-reference">Configuration reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sources_and_targets/">Sources and Targets</a></li>
+</ul>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="large-9 medium-8 columns content documentation-body">
+        <div class="panel">
+
+            
+            <a href="https://github.com/transfer-framework/docs/edit/1.0/bridge/index.rst" class="button secondary tiny radius edit-button" target="_blank">
+                Edit this page
+            </a>
+
+                            <div class="section" id="bridge">
+<h1>Bridge<a class="headerlink" href="#bridge" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Writing your own API client from scratch may often take some time. Bridge helps you accelerate and
+ease this process by providing a set of tools for API consumption. These tools help you fetch
+resources, cache API responses and transform data.</p>
+<p>Bridge is written in PHP and uses <a class="reference internal" href="../framework/"><span class="doc">Transfer</span></a> components internally.</p>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="caching">
+<h3>Caching<a class="headerlink" href="#caching" title="Permalink to this headline">¶</a></h3>
+<p>Another challenge with working with external web APIs is performance loss due to repeated API calls. Bridge has
+built-in support for caching API responses. This means that subsequent calls will be executed faster, thus improving
+the overall performance.</p>
+<p>Bridge uses the file system as its default cache storage provided by the <a href="http://symfony.com/blog/new-in-symfony-3-1-cache-component" target="_blank">Symfony Cache</a> component,
+although any implementation compatible with the <a href="http://www.php-fig.org/psr/psr-6/" target="_blank">PSR-6 standard</a> is supported by Bridge.</p>
+</div>
+<div class="section" id="event-system">
+<h3>Event system<a class="headerlink" href="#event-system" title="Permalink to this headline">¶</a></h3>
+<p>Bridge comes with a built-in event system that lets you hook your own event listeners to a set of events. The listeners can
+access events before and after the execution of an action. This lets an event listener do activities such as modifying
+call arguments or changing an action response.</p>
+</div>
+<div class="section" id="web-toolbar-in-symfony">
+<h3>Web Toolbar in Symfony<a class="headerlink" href="#web-toolbar-in-symfony" title="Permalink to this headline">¶</a></h3>
+<p>In Symfony, all activity will be presented in the profiler toolbar which is commonly seen at the bottom of the page
+when you’re application runs in dev environment.</p>
+<p>The Bridge part of the toolbar shows the total execution time and count of all the calls that were part of a request.</p>
+<div class="figure align-center" id="id2">
+<img alt="../_images/toolbar_1.png" src="../_images/toolbar_1.png" />
+<p class="caption"><span class="caption-text"><em>Symfony Profiler web toolbar</em></span></p>
+</div>
+<p>By clicking into the Bridge profiler page, you’ll see more details on every call that was made.</p>
+<div class="figure align-center" id="id3">
+<img alt="../_images/toolbar_2.png" src="../_images/toolbar_2.png" />
+<p class="caption"><span class="caption-text"><em>Symfony Profiler details page</em></span></p>
+</div>
+</div>
+</div>
+<div class="section" id="installing-bridge">
+<h2>Installing Bridge<a class="headerlink" href="#installing-bridge" title="Permalink to this headline">¶</a></h2>
+<p>Install the latest version using Composer:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>composer require transfer/bridge
+</pre></div>
+</div>
+<p>This requires <a href="https://getcomposer.org/download/" target="_blank">Composer</a> to be installed
+on your system.</p>
+</div>
+<div class="section" id="defining-services-in-php">
+<h2>Defining services in PHP<a class="headerlink" href="#defining-services-in-php" title="Permalink to this headline">¶</a></h2>
+<p>Bridge services are defined by using <cite>Service</cite> objects with unique names.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Bridge\Service</span><span class="p">;</span>
+
+<span class="nv">$service</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Service</span><span class="p">(</span><span class="s1">&#39;acme_service&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Each service defines a list of groups. Similarly, each group defines a list of actions. Groups are defined by using
+<cite>Group</cite> objects, which are added to services afterwards.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Bridge\Group</span><span class="p">;</span>
+
+<span class="nv">$group</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Group</span><span class="p">(</span><span class="s1">&#39;math&#39;</span><span class="p">);</span>
+
+<span class="nv">$service</span><span class="o">-&gt;</span><span class="na">addGroup</span><span class="p">(</span><span class="nv">$group</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Actions, which contain the execution logic, are defined by using objects that extend <cite>AbstractAction</cite>. Bridge comes with
+several implementations. You are encouraged to create your own implementations actions.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Bridge\Action\AbstractAction</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AddAction</span> <span class="k">extends</span> <span class="nx">AbstractAction</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">execute</span><span class="p">(</span><span class="k">array</span> <span class="nv">$arguments</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="nv">$arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nv">$arguments</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$group</span><span class="o">-&gt;</span><span class="na">addAction</span><span class="p">(</span><span class="nv">$action</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Finally, services with defined groups and actions have to be added to the registry.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Bridge\Registry</span><span class="p">;</span>
+
+<span class="nv">$registry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Registry</span><span class="p">();</span>
+
+<span class="nv">$registry</span><span class="o">-&gt;</span><span class="na">addService</span><span class="p">(</span><span class="nv">$service</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-services-in-php">
+<h2>Using services in PHP<a class="headerlink" href="#using-services-in-php" title="Permalink to this headline">¶</a></h2>
+<p>To execute an action, we first fetch the group to which the action is related, and then call a method
+corresponding to the name of the action and pass the necessary arguments.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$result</span> <span class="o">=</span> <span class="nv">$registry</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;acme_service.math&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="adding-event-listeners-subscribers">
+<h2>Adding event listeners/subscribers<a class="headerlink" href="#adding-event-listeners-subscribers" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;re not familiar with event listeners/subscribers, please read the Symfony&#8217;s <a class="reference external" href="http://symfony.com/doc/master/event_dispatcher.html">Event Dispatcher</a>
+documentation before moving on.</p>
+<p>Event listeners/subscribers are registered by services. To add an event listener, call the <cite>addEventListener</cite> method
+on a service and pass the event type the listener should be activated on and the event listener callable.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Bridge\Events\BridgeEvents</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Bridge\Event\PreActionEvent</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Bridge\Event\PostActionEvent</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Listener</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">preAction</span><span class="p">(</span><span class="nx">PreActionEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">postAction</span><span class="p">(</span><span class="nx">PostActionEvent</span> <span class="nv">$event</span><span class="p">)</span>
+    <span class="p">{</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// The callable will be invoked before an action is executed</span>
+<span class="nv">$service</span><span class="o">-&gt;</span><span class="na">addEventListener</span><span class="p">(</span><span class="nx">BridgeEvents</span><span class="o">::</span><span class="na">PRE_ACTION</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Listener</span><span class="p">(),</span> <span class="s1">&#39;preAction&#39;</span><span class="p">));</span>
+
+<span class="c1">// The callable will be invoked after an action is executed</span>
+<span class="nv">$service</span><span class="o">-&gt;</span><span class="na">addEventListener</span><span class="p">(</span><span class="nx">BridgeEvents</span><span class="o">::</span><span class="na">POST_ACTION</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span><span class="k">new</span> <span class="nx">Listener</span><span class="p">(),</span> <span class="s1">&#39;postAction&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="cache-pools">
+<h2>Cache pools<a class="headerlink" href="#cache-pools" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="using-the-default-cache-pool">
+<h3>Using the default cache pool<a class="headerlink" href="#using-the-default-cache-pool" title="Permalink to this headline">¶</a></h3>
+<p>The default cache pool can be accessed through the registry:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$pool</span> <span class="o">=</span> <span class="nv">$registry</span><span class="o">-&gt;</span><span class="na">getCachePool</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The object returned implements <cite>Psr\Cache\CacheItemPoolInterface</cite>.</p>
+</div>
+<div class="section" id="adding-new-cache-pools">
+<h3>Adding new cache pools<a class="headerlink" href="#adding-new-cache-pools" title="Permalink to this headline">¶</a></h3>
+<p>Adding new cache pools is done through the registry:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$pool</span> <span class="o">=</span> <span class="nv">$registry</span><span class="o">-&gt;</span><span class="na">addCachePool</span><span class="p">(</span><span class="s1">&#39;pool_name&#39;</span><span class="p">,</span> <span class="nv">$cachePool</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The <cite>$cachePool</cite> argument must implement <cite>Psr\Cache\CacheItemPoolInterface</cite>.</p>
+<p>To learn more about how cache pools are used, check out the <a href="http://www.php-fig.org/psr/psr-6/" target="_blank">PSR-6 standard</a> documentation.
+If you are interested in cache pool implementations, check out the <a href="http://symfony.com/blog/new-in-symfony-3-1-cache-component" target="_blank">Symfony Cache</a> component.</p>
+</div>
+</div>
+<div class="section" id="using-bridge-with-symfony">
+<h2>Using Bridge with Symfony<a class="headerlink" href="#using-bridge-with-symfony" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="installing-bridge-bundle">
+<h3>Installing Bridge Bundle<a class="headerlink" href="#installing-bridge-bundle" title="Permalink to this headline">¶</a></h3>
+<p>Install the latest version using Composer:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>composer require transfer/bridge-bundle
+</pre></div>
+</div>
+<p>This requires <a href="https://getcomposer.org/download/" target="_blank">Composer</a> to be installed
+on your system.</p>
+<p>Then, enable the bundle by adding the following line in the app/AppKernel.php file of your project:</p>
+<div class="literal-block-wrapper container" id="application-kernel-file">
+<div class="code-block-caption"><span class="caption-text">app/AppKernel.php</span><a class="headerlink" href="#application-kernel-file" title="Permalink to this code">¶</a></div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">AppKernel</span> <span class="k">extends</span> <span class="nx">Kernel</span>
+<span class="p">{</span>
+  <span class="k">public</span> <span class="k">function</span> <span class="nf">registerBundles</span><span class="p">()</span>
+  <span class="p">{</span>
+      <span class="nv">$bundles</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
+          <span class="c1">// ...</span>
+          <span class="k">new</span> <span class="nx">Bridge\Bundle\BridgeBundle</span><span class="p">(),</span>
+      <span class="p">);</span>
+
+      <span class="c1">// ...</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="defining-services-in-yaml">
+<h3>Defining services in YAML<a class="headerlink" href="#defining-services-in-yaml" title="Permalink to this headline">¶</a></h3>
+<p>Services can also be defined in YAML. The following YAML configuration reflects the same configuration shown
+previously in <a class="reference internal" href="#defining-services-in-php">Defining services in PHP</a>. Such configuration is added in <cite>app/config/config.yml</cite>.
+You can also create a separate configuration file and import it into the main Symfony configuration file.</p>
+<div class="literal-block-wrapper container" id="symfony-configuration-file">
+<div class="code-block-caption"><span class="caption-text">app/config/config.yml</span><a class="headerlink" href="#symfony-configuration-file" title="Permalink to this code">¶</a></div>
+<div class="highlight-yml"><div class="highlight"><pre><span></span>imports:
+  - { resource: acme-bridge.yml }
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper container" id="bridge-service-configuration">
+<div class="code-block-caption"><span class="caption-text">app/config/acme-bridge.yml</span><a class="headerlink" href="#bridge-service-configuration" title="Permalink to this code">¶</a></div>
+<div class="highlight-yml"><div class="highlight"><pre><span></span>bridge:
+  services:
+    acme_service:
+      groups:
+        math:
+          actions:
+            add:
+              class: AddAction # Fully qualified class name
+</pre></div>
+</div>
+</div>
+<p>In addition, it is also possible to provide options for services, groups and actions.</p>
+<div class="literal-block-wrapper container" id="id1">
+<div class="code-block-caption"><span class="caption-text">app/config/acme-bridge.yml</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-yml"><div class="highlight"><pre><span></span>bridge:
+  services:
+    acme_service:
+      options: ~
+      groups:
+        math:
+          options: ~
+          actions:
+            options: ~
+            add:
+              class: AddAction # Fully qualified class name
+</pre></div>
+</div>
+</div>
+<p>The option array will be passed as the second argument in the constructor method.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$service</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Service</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$group</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Group</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$action</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AddAction</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-services-via-service-container">
+<h3>Using services via service container<a class="headerlink" href="#using-services-via-service-container" title="Permalink to this headline">¶</a></h3>
+<p>With Bridge bundle for Symfony, the registry is going to be registered as a service. All services configured in YAML
+will be automatically connected to the Symfony service.</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$registry</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">container</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;bridge.registry&#39;</span><span class="p">);</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$registry</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;acme_service.math&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If you&#8217;re fetching the registry in a controller action, you can use a shortcut:</p>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="nv">$registry</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;bridge.registry&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<p>Bridge comes with a simple console application that provides a set of commands for listing registered services,
+executing actions, and managing cache.</p>
+<p>If you have configured your <cite>composer.json</cite> file to symlink library apps in the <cite>bin</cite> folder located in the root folder
+of your project, the Bridge console apps will also be available in that folder.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>php bin/bridge
+</pre></div>
+</div>
+<p>If <cite>bin/bridge</cite> is not presented, for purposes of convenience you can create a symlink on your own. Assuming your on
+Linux or Mac OS X you can do it as follows:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>mkdir bin/
+ln -s vendor/transfer/bridge/bin/bridge bin/bridge
+chmod +x bin/bridge
+</pre></div>
+</div>
+<p>The last command will mark the <cite>bridge</cite> script as executable.</p>
+<div class="section" id="providing-a-registry-file">
+<h3>Providing a registry file<a class="headerlink" href="#providing-a-registry-file" title="Permalink to this headline">¶</a></h3>
+<p>If you&#8217;re using Bridge outside Symfony you will need to specify the registry file each time you run any command. The
+registry file contains the Bridge registry with all the associated services.</p>
+<div class="literal-block-wrapper container" id="bridge-registry">
+<div class="code-block-caption"><span class="caption-text">registry.php</span><a class="headerlink" href="#bridge-registry" title="Permalink to this code">¶</a></div>
+<div class="highlight-php"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$registry</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Bridge\Registry</span><span class="p">();</span>
+
+<span class="c1">// define services</span>
+<span class="c1">// $service = ...</span>
+
+<span class="c1">// add services</span>
+<span class="c1">// $registry-&gt;addService($service);</span>
+
+<span class="c1">// return the registry</span>
+<span class="k">return</span> <span class="nv">$registry</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<p>Note that the filename of the registry is arbitrary.</p>
+</div>
+<div class="section" id="listing-services">
+<h3>Listing services<a class="headerlink" href="#listing-services" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Without Symfony</span>
+php bin/bridge list -r registry.php
+
+<span class="c1"># With Symfony</span>
+php app/console bridge:list
+</pre></div>
+</div>
+<p>The <cite>list</cite> command will return a list of registered services, its groups and actions.</p>
+</div>
+<div class="section" id="executing-actions">
+<h3>Executing actions<a class="headerlink" href="#executing-actions" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Without Symfony</span>
+php bin/bridge execute <span class="o">[</span>action<span class="o">]</span> <span class="o">[</span>arg1<span class="o">]</span> <span class="o">[</span>arg2<span class="o">]</span> <span class="o">[</span>..<span class="o">]</span> <span class="o">[</span>argn<span class="o">]</span> -r registry.php
+
+<span class="c1"># With Symfony</span>
+php app/console bridge:execute <span class="o">[</span>action<span class="o">]</span> <span class="o">[</span>arg1<span class="o">]</span> <span class="o">[</span>arg2<span class="o">]</span> <span class="o">[</span>..<span class="o">]</span> <span class="o">[</span>argn<span class="o">]</span>
+
+<span class="c1"># Sample calls</span>
+php bin/bridge execute acme_service.math.add <span class="m">1</span> <span class="m">2</span> -r registry.php
+php app/console bridge:execute acme_service.math.add <span class="m">1</span> 2
+</pre></div>
+</div>
+<p>The <cite>execute</cite> command takes the full action name (including service and group names) as its first argument, and variable
+list of arguments. The action is executed and the response is outputted in the console.</p>
+</div>
+<div class="section" id="listing-cache-pools">
+<h3>Listing cache pools<a class="headerlink" href="#listing-cache-pools" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Without Symfony</span>
+php bin/bridge cache:pools <span class="o">[</span>pool_name<span class="o">]</span> -r registry.php
+
+<span class="c1"># With Symfony</span>
+php app/console bridge:cache:pools <span class="o">[</span>pool_name<span class="o">]</span>
+</pre></div>
+</div>
+<p>This <cite>cache:pools</cite> command will output the list of registered cache pools.</p>
+</div>
+<div class="section" id="clearing-cache-for-a-cache-pool">
+<h3>Clearing cache for a cache pool<a class="headerlink" href="#clearing-cache-for-a-cache-pool" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Without Symfony</span>
+php bin/bridge cache:clear <span class="o">[</span>pool_name<span class="o">]</span> -r registry.php
+
+<span class="c1"># With Symfony</span>
+php app/console bridge:cache:clear <span class="o">[</span>pool_name<span class="o">]</span>
+</pre></div>
+</div>
+<p>This <cite>cache:clear</cite> command will clear all cache for a specific cache pool.</p>
+</div>
+<div class="section" id="removing-specific-cache-in-a-cache-pool">
+<h3>Removing specific cache in a cache pool<a class="headerlink" href="#removing-specific-cache-in-a-cache-pool" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># Without Symfony</span>
+php bin/bridge cache:remove <span class="o">[</span>pool_name<span class="o">]</span> <span class="o">[</span>action<span class="o">]</span> <span class="o">[</span>arg1<span class="o">]</span> <span class="o">[</span>arg2<span class="o">]</span> <span class="o">[</span>..<span class="o">]</span> <span class="o">[</span>argn<span class="o">]</span> -r registry.php
+
+<span class="c1"># With Symfony</span>
+php app/console bridge:cache:remove <span class="o">[</span>pool_name<span class="o">]</span> <span class="o">[</span>action<span class="o">]</span> <span class="o">[</span>arg1<span class="o">]</span> <span class="o">[</span>arg2<span class="o">]</span> <span class="o">[</span>..<span class="o">]</span> <span class="o">[</span>argn<span class="o">]</span>
+</pre></div>
+</div>
+<p>This <cite>cache:remove</cite> command will remove cache associated with an action call with specific arguments.</p>
+</div>
+</div>
+<div class="section" id="configuration-reference">
+<h2>Configuration reference<a class="headerlink" href="#configuration-reference" title="Permalink to this headline">¶</a></h2>
+<p>The following section lists all options that are available to configure Bridge.</p>
+<div class="highlight-yml"><div class="highlight"><pre><span></span># Default configuration for extension with alias: &quot;bridge&quot;
+bridge:
+
+    # List of services
+    services:
+
+        # Prototype: Service definition
+        name:
+
+            # Service type
+            type:                 ~
+
+            # Service class
+            class:                Bridge\Service
+
+            # Custom options
+            options:              []
+
+            # List of groups
+            groups:
+
+                # Prototype: Group definition
+                name:
+
+                    # Group type
+                    type:                 ~
+
+                    # Group class
+                    class:                Bridge\Group
+
+                    # Custom options
+                    options:              []
+
+                    # List of actions
+                    actions:
+
+                        # Prototype: Action definition
+                        name:
+
+                            # Action type
+                            type:                 ~
+
+                            # Action class
+                            class:                Bridge\Action\NullAction
+
+                            # Custom options
+                            options:              ~
+</pre></div>
+</div>
+</div>
+</div>
+
+                    </div>
+        <div class="pagination-centered">
+            <ul class="pagination" role="menubar" aria-label="Pagination">
+                                    <li class="arrow"><a href="../framework/quick_tour/procedures.html">&laquo; Procedures and processors</a></li>
+                
+                                    <li class="arrow"><a href="../sources_and_targets/">Sources and Targets &raquo;</a></li>
+                            </ul>
+
+        </div>
+    </div>
+            </section>
+
+            <a class="exit-off-canvas"></a>
+
+        </div>
+    </div>
+
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js" type="text/javascript"></script>
+    <script src="/scripts/foundation.min.js" type="text/javascript"></script>
+    <script src="/scripts/app.js" type="text/javascript"></script>
+
+    <script>
+        $(document).foundation();
+    </script>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-78785154-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    </body>
+</html>
